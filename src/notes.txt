@@ -1,0 +1,15 @@
+After reading in the data and looking at the data frame's information, I saw that there was a heavy negative minimum value for the x,y,z, and d1-d3 columns.
+
+I then plotted the graphs, just to see if a visualization of the data gives me more insight than just the description. I saw how much of an outlier d4 truly is, and then plotted the graph once more, without d4 just to see the rest of the data closer.
+
+I then took the log of the data to see if that would give me any good hints as to what this data does, and when visualizing like before, I can truly see that it didn't provide me significant or new information in regards to the data as a whole.
+
+To ensure the observations from before, by plotting this information with line plots one final time. This time, however, I've already observed how drastic the difference in the range of the data from d4 is, from the other columns, and how large the outlier is in the previous graphs, I want to take a closer look at the trends of the line by graphing without the d4 column and the major outlier. So I do just that, and after visualizing the trends of the columns {x,y,z,d1,d2, and d3, I truly can see that there is just far too much noise to continue with line plots.
+
+So, I want to look at the scatter plots of the data, however, I also know that I want to be able to see if there is any correlation between certain variables. I would also like to see if perhaps a column could be used to predict another column using cross validation. I at first only chose the linear model as my model for cross validation, but looking at the documentation, I saw Lasso as well, and I figured I should try to see if by including it I would get a more accurate result. Next, I had to choose a format for my cross-validation, and I chose the KFold methods, using 10 folds/splits, for all sets. 
+
+After making these choices, I first made individual comparisons for x predict d1, d2, d3, d4, y and z. I saw good correlation between both x and d1, so I figured this method of comparing the columns of data may provide insight as to what they're used for. x predict d2, d3, d4, y and z did not correlate well or cause good predictions, however, looking at the shape/distribution of the scatter plot from these, I had thought to compare the columns who had similar shapes when predicted by x.
+
+So, this caused me to use y to predict d4, which showed a non-linear correlation when predicting, however, the values seem to work well for comparison sake as they show a strong, tight relation.
+
+However, trying this on d2 to predict d3 did not show me as promising results, and resulted in a curve. This tells me that I should really look into adding nonlinear terms. Perhaps use Polynomial Features or maybe try a different model (Tree?).
